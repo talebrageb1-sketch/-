@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Level | نحو صف ذكي وتفاعلي وبدون إحراج</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Tajawal -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Premium Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Tajawal', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0f4ff',
+                            100: '#e1ebff',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            900: '#1e3a8a',
+                            accent: '#8b5cf6', // Violet
+                            studentGreen: '#10b981',
+                            studentYellow: '#f59e0b',
+                            studentRed: '#ef4444',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .hero-gradient {
+            background: radial-gradient(circle at top right, rgba(139, 92, 246, 0.15), transparent 40%),
+                        radial-gradient(circle at bottom left, rgba(59, 130, 246, 0.15), transparent 40%);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans selection:bg-brand-500 selection:text-white overflow-x-hidden">
+
+    <!-- Header / Navbar -->
+    <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 glass-panel border-b border-slate-200/50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Logo Section -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-brand-accent flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-graduation-cap text-lg"></i>
+                </div>
+                <div>
+                    <span class="text-xl font-extrabold text-slate-900 tracking-wide block">My Level</span>
+                    <span class="text-xs font-bold text-brand-accent tracking-widest block uppercase -mt-1">By RLA Team</span>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation Links -->
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="#about" class="text-slate-600 hover:text-brand-600 font-medium transition-colors">الفكرة</a>
+                <a href="#problem" class="text-slate-600 hover:text-brand-600 font-medium transition-colors">المشكلة</a>
+                <a href="#solution" class="text-slate-600 hover:text-brand-600 font-medium transition-colors">الحل الذكي</a>
+                <a href="#demo" class="text-slate-600 hover:text-brand-600 font-medium transition-colors">تجربة تفاعلية</a>
+                <a href="#features" class="text-slate-600 hover:text-brand-600 font-medium transition-colors">المميزات</a>
+            </nav>
+
+            <!-- Call to Action Button in Header -->
+            <div class="hidden md:flex items-center gap-4">
+                <a href="#demo" class="px-5  py-2.5 rounded-xl bg-slate-900 text-white hover:bg-slate-800 font-semibold transition-all shadow-sm flex items-center gap-2 text-sm">
+                    <i class="fa-solid fa-play text-xs"></i>
+                    <span>جرّب المحاكي الآن</span>
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="mobileMenuBtn" class="md:hidden text-slate-700 hover:text-brand-600 p-2 focus:outline-none" aria-label="Toggle Menu">
+                <i class="fa-solid fa-bars-staggered text-2xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Drawer Navigation -->
+        <div id="mobileDrawer" class="hidden md:hidden border-t border-slate-200 bg-white shadow-xl absolute top-20 left-0 w-full p-6 transition-all duration-300">
+            <nav class="flex flex-col gap-4">
+                <a href="#about" class="mobile-link text-slate-700 hover:text-brand-600 font-semibold text-lg py-1 border-b border-slate-100">الفكرة</a>
+                <a href="#problem" class="mobile-link text-slate-700 hover:text-brand-600 font-semibold text-lg py-1 border-b border-slate-100">المشكلة</a>
+                <a href="#solution" class="mobile-link text-slate-700 hover:text-brand-600 font-semibold text-lg py-1 border-b border-slate-100">الحل الذكي</a>
+                <a href="#demo" class="mobile-link text-slate-700 hover:text-brand-600 font-semibold text-lg py-1 border-b border-slate-100">المحاكاة التفاعلية</a>
+                <a href="#features" class="mobile-link text-slate-700 hover:text-brand-600 font-semibold text-lg py-1">المميزات</a>
+                
+                <a href="#demo" class="mobile-link w-full text-center mt-4 px-6 py-3 rounded-xl bg-brand-600 text-white hover:bg-brand-700 font-bold shadow-md transition-all flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-play"></i>
+                    <span>جرّب التطبيق الآن</span>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="about" class="relative pt-32 pb-20 md:pt-40 md:pb-32 hero-gradient overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Info Text (Standard Arabic Alignment) -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-right">
+                    <div class="inline-flex items-center gap-2 bg-brand-50 border border-brand-100 px-4 py-2 rounded-full text-brand-600 font-semibold text-sm animate-pulse mx-auto lg:mx-0">
+                        <span class="w-2 h-2 rounded-full bg-brand-accent"></span>
+                        <span>مستقبل التعليم التفاعلي بين يديك</span>
+                    </div>
+                    
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 leading-tight">
+                        تطبيق <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-brand-accent">My Level</span> – نحو صفّ ذكي، تفاعلي، وبدون إحراج!
+                    </h1>
+                    
+                    <p class="text-lg md:text-xl text-slate-600 font-medium leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                        المنصة الأولى التي تمنح المعلم رؤية فورية لمستوى فهم الطلاب في الحصة، وتمنح الطالب السرية والأمان للمشاركة والتفاعل بكل ثقة.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                        <a href="#demo" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-gradient-to-r from-brand-600 to-brand-700 hover:from-brand-700 hover:to-brand-800 text-white font-bold text-lg shadow-lg shadow-brand-500/25 transition-all transform hover:-translate-y-1 flex items-center justify-center gap-3">
+                            <i class="fa-solid fa-qrcode text-xl"></i>
+                            <span>جرّب التطبيق الآن</span>
+                        </a>
+                        <a href="#problem" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 font-bold text-lg shadow-sm transition-all flex items-center justify-center gap-2">
+                            <span>تعرّف علينا أكثر</span>
+                            <i class="fa-solid fa-arrow-left text-sm"></i>
+                        </a>
+                    </div>
+
+                    <!-- Statistics/Highlights -->
+                    <div class="grid grid-cols-3 gap-4 pt-8 border-t border-slate-200/60 max-w-lg mx-auto lg:mx-0">
+                        <div>
+                            <span class="block text-2xl sm:text-3xl font-extrabold text-brand-600">100%</span>
+                            <span class="block text-xs sm:text-sm text-slate-500 font-medium">خصوصية وسرية</span>
+                        </div>
+                        <div>
+                            <span class="block text-2xl sm:text-3xl font-extrabold text-brand-accent">لـحظي</span>
+                            <span class="block text-xs sm:text-sm text-slate-500 font-medium">تغذية راجعة فورية</span>
+                        </div>
+                        <div>
+                            <span class="block text-2xl sm:text-3xl font-extrabold text-slate-800">بسيط</span>
+                            <span class="block text-xs sm:text-sm text-slate-500 font-medium">بدون أي تعقيد</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Visual Element / Interactive Concept Illustration -->
+                <div class="lg:col-span-5 flex justify-center relative">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-brand-accent/10 to-brand-500/10 rounded-full filter blur-3xl -z-10"></div>
+                    
+                    <!-- Beautiful Mockup Container -->
+                    <div class="relative bg-slate-900 text-white p-6 rounded-[2.5rem] shadow-2xl border-4 border-slate-800 w-full max-w-[360px] aspect-[9/18] flex flex-col justify-between overflow-hidden">
+                        <!-- Phone Notch / Camera -->
+                        <div class="absolute top-0 left-1/2 -translate-x-1/2 bg-slate-800 h-6 w-36 rounded-b-2xl flex items-center justify-center gap-1.5 px-3">
+                            <span class="w-1.5 h-1.5 rounded-full bg-slate-700"></span>
+                            <span class="w-12 h-1 bg-slate-900 rounded-full"></span>
+                        </div>
+
+                        <!-- Top Status bar -->
+                        <div class="flex justify-between items-center text-xs text-slate-400 mt-2 px-2">
+                            <span>9:41 AM</span>
+                            <div class="flex items-center gap-1.5">
+                                <i class="fa-solid fa-wifi"></i>
+                                <i class="fa-solid fa-battery-three-quarters"></i>
+                            </div>
+                        </div>
+
+                        <!-- App Content Area Mockup -->
+                        <div class="flex-1 mt-6 flex flex-col justify-between py-2">
+                            <!-- Class Code Info Header -->
+                            <div class="bg-slate-800/80 rounded-2xl p-3 border border-slate-700/50">
+                                <div class="flex justify-between items-center mb-1">
+                                    <span class="text-[10px] text-brand-100 font-semibold bg-brand-600 px-2 py-0.5 rounded-full">الدرس الحالي</span>
+                                    <span class="text-[10px] text-slate-400">كود الصف: #RLA5</span>
+                                </div>
+                                <h3 class="text-xs font-bold text-white">الاحتمالات والإحصاء المتقدم</h3>
+                            </div>
+
+                            <!-- Animated Interactive Simulation in Hero -->
+                            <div class="bg-slate-800/50 rounded-2xl p-4 text-center my-4 border border-slate-700/30 flex-1 flex flex-col justify-center gap-3">
+                                <p class="text-xs font-medium text-slate-300">ما هو مستوى استيعابك للشرح الحالي؟</p>
+                                
+                                <div class="space-y-2">
+                                    <div class="p-2.5 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold flex items-center justify-between transform hover:scale-105 transition-transform">
+                                        <span>فاهم تماماً</span>
+                                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                                    </div>
+                                    <div class="p-2.5 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-bold flex items-center justify-between">
+                                        <span>نص نص</span>
+                                        <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+                                    </div>
+                                    <div class="p-2.5 rounded-xl bg-red-500/10 border border-red-500/30 text-red-400 text-xs font-bold flex items-center justify-between">
+                                        <span>مش فاهم</span>
+                                        <span class="w-2 h-2 rounded-full bg-red-400"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Mockup Safety Tag -->
+                            <div class="bg-slate-900 border border-slate-800 p-2 rounded-xl text-center text-[10px] text-slate-400 flex items-center justify-center gap-1">
+                                <i class="fa-solid fa-shield-halved text-brand-accent"></i>
+                                <span>هويتك سرية بالكامل ومحميّة</span>
+                            </div>
+                        </div>
+
+                        <!-- Home indicator -->
+                        <div class="w-24 h-1 bg-slate-700 rounded-full mx-auto mt-2"></div>
+                    </div>
+
+                    <!-- Floating decorative card -->
+                    <div class="absolute -bottom-6 -right-6 md:right-12 bg-white p-4 rounded-2xl shadow-xl border border-slate-100 max-w-[180px] hidden sm:block animate-bounce">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="w-3 h-3 rounded-full bg-emerald-500"></span>
+                            <span class="text-xs font-bold text-slate-800">تحديث فوري للوحة</span>
+                        </div>
+                        <span class="text-2xl font-black text-slate-900">100%</span>
+                        <p class="text-[10px] text-slate-500 mt-1">نسبة الفهم العام بالصف تظهر مباشرة للمعلم</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- The Problem Section -->
+    <section id="problem" class="py-20 bg-slate-100 border-y border-slate-200 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-600 font-extrabold text-sm uppercase tracking-wider block mb-2">التحدي التعليمي الحالي</span>
+                <h2 class="text-3xl sm:text-4xl font-black text-slate-900">المشكلة الحقيقية في حصصنا اليومية</h2>
+                <div class="w-16 h-1 bg-brand-500 mx-auto mt-4 rounded-full"></div>
+                <p class="text-slate-600 mt-4 text-base sm:text-lg">
+                    في كل حصة دراسية، يواجه المعلم تحدياً كبيراً في تقييم مدى استيعاب الطلاب للشرح بشكل دقيق ولحظي. من الصعب معرفة من فهم النقطة الحالية ومن تاه وسط الدرس.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Card 1: Fear of Embarrassment -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-200/60 hover:shadow-md hover:border-brand-300 transition-all group">
+                    <div class="w-12 h-12 rounded-2xl bg-red-50 text-red-500 flex items-center justify-center text-xl mb-6 group-hover:bg-red-500 group-hover:text-white transition-all">
+                        <i class="fa-solid fa-face-frown-open"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-950 mb-3">الخوف من الإحراج الاجتماعي</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        الكثير من الطلاب يواجهون صعوبة بالغة في الفهم، لكنهم يترددون دوماً في رفع أيديهم أو طلب المساعدة خوفاً من نظرة زملائهم أو التعرض للشعور بالإحراج وسط الصف.
+                    </p>
+                </div>
+
+                <!-- Card 2: Time Constraint -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-200/60 hover:shadow-md hover:border-brand-300 transition-all group">
+                    <div class="w-12 h-12 rounded-2xl bg-amber-50 text-amber-500 flex items-center justify-center text-xl mb-6 group-hover:bg-amber-500 group-hover:text-white transition-all">
+                        <i class="fa-solid fa-hourglass-half"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-950 mb-3">ضيق وقت الحصة</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        لا يملك المعلم إطلاقاً الوقت الكافي ليسأل كل طالب على حدة: "هل فهمت؟" ثم ينتظر الإجابات المنفصلة ويحللها، فالوقت يمر سريعاً ومطالب بإنهاء المنهج.
+                    </p>
+                </div>
+
+                <!-- Card 3: False Collective Agreement -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-200/60 hover:shadow-md hover:border-brand-300 transition-all group">
+                    <div class="w-12 h-12 rounded-2xl bg-orange-50 text-orange-500 flex items-center justify-center text-xl mb-6 group-hover:bg-orange-500 group-hover:text-white transition-all">
+                        <i class="fa-solid fa-volume-high"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-950 mb-3">عدم دقة الإجابة الجماعية</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        كلمة "نعم فهمنا" أو "واضح" التي يصرخ بها الصف جماعياً في نهاية كل فكرة غالباً ما تخفي وراءها أغلبية صامتة من الطلاب الذين لم يستوعبوا الدرس بعد.
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- Visual Contrast block -->
+            <div class="mt-12 p-8 rounded-3xl bg-gradient-to-r from-slate-900 to-slate-800 text-white flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl">
+                <div class="space-y-2">
+                    <h4 class="text-lg font-bold text-brand-100">هل تساءلت يوماً؟</h4>
+                    <p class="text-sm text-slate-300 max-w-2xl leading-relaxed">
+                        كم من طالب عاد إلى منزله دون أن يفهم الفكرة الأساسية للدرس فقط لأنه خجل من الاستفسار؟ الطرق التقليدية لم تعد كافية في عصر التعليم الحديث.
+                    </p>
+                </div>
+                <a href="#solution" class="px-6 py-3.5 rounded-xl bg-brand-500 hover:bg-brand-600 text-white font-bold text-sm transition-colors shrink-0 flex items-center gap-2">
+                    <span>انتقل للحل الذكي</span>
+                    <i class="fa-solid fa-arrow-down"></i>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- The Solution Section -->
+    <section id="solution" class="py-20 relative overflow-hidden bg-white">
+        <!-- Background Elements -->
+        <div class="absolute top-1/2 left-0 w-72 h-72 bg-brand-50 rounded-full filter blur-3xl -z-10 opacity-70"></div>
+        <div class="absolute bottom-0 right-0 w-96 h-96 bg-brand-accent/5 rounded-full filter blur-3xl -z-10 opacity-70"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-accent font-extrabold text-sm uppercase tracking-wider block mb-2">الحل المبتكر معنا</span>
+                <h2 class="text-3xl sm:text-4xl font-black text-slate-900">تطبيق My Level: التكنولوجيا تكسر حاجز الخوف</h2>
+                <div class="w-16 h-1 bg-brand-accent mx-auto mt-4 rounded-full"></div>
+                <p class="text-slate-600 mt-4 text-base sm:text-lg">
+                    تطبيق My Level هو الحل التكنولوجي الذكي والآمن الذي يربط المعلم بطلابه بطريقة مباشرة وسريّة تماماً أثناء الحصة الدراسية الفعلية دون أي تشويش.
+                </p>
+            </div>
+
+            <!-- Step by Step System Flow -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 relative z-10">
+                
+                <!-- Step 1 -->
+                <div class="relative bg-slate-50 p-8 rounded-3xl border border-slate-200/50 hover:bg-brand-50/20 hover:border-brand-200 transition-all group">
+                    <span class="absolute top-4 left-4 text-6xl font-black text-slate-200/60 group-hover:text-brand-200 transition-all select-none">01</span>
+                    <div class="w-12 h-12 rounded-xl bg-brand-500 text-white flex items-center justify-center text-lg font-bold shadow-md mb-6">
+                        <i class="fa-solid fa-pointer"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">كبسة زر من الطالب</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        أثناء الشرح المستمر، يضغط الطالب ببساطة على شاشة هاتفه أو التابلت ليختار فوراً مستوى فهمه الحالي (فاهم، نص نص، مش فاهم) أو يجيب على سؤال سريع يطرحه المعلم الآن.
+                    </p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="relative bg-slate-50 p-8 rounded-3xl border border-slate-200/50 hover:bg-brand-50/20 hover:border-brand-200 transition-all group">
+                    <span class="absolute top-4 left-4 text-6xl font-black text-slate-200/60 group-hover:text-brand-200 transition-all select-none">02</span>
+                    <div class="w-12 h-12 rounded-xl bg-brand-accent text-white flex items-center justify-center text-lg font-bold shadow-md mb-6">
+                        <i class="fa-solid fa-bolt-lightning"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">تحليل ومعالجة فورية</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        يقوم التطبيق السحابي الذكي بجمع كافة إجابات وردود أفعال الطلاب في نفس تلك اللحظة بالذات ومعالجتها فوراً دون إضاعة ثانية واحدة من وقت الحصة.
+                    </p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="relative bg-slate-50 p-8 rounded-3xl border border-slate-200/50 hover:bg-brand-50/20 hover:border-brand-200 transition-all group">
+                    <span class="absolute top-4 left-4 text-6xl font-black text-slate-200/60 group-hover:text-brand-200 transition-all select-none">03</span>
+                    <div class="w-12 h-12 rounded-xl bg-indigo-600 text-white flex items-center justify-center text-lg font-bold shadow-md mb-6">
+                        <i class="fa-solid fa-chart-simple"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">لوحة تحكم ذكية للمعلم</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        تظهر النتيجة فوراً على شاشة المعلم كرسومات توضيحية ونسب مئوية؛ فيعرف المعلم فوراً إذا كان الصف مستعداً للمتابعة أو يحتاج لإعادة الشرح، وبأعلى مستويات الخصوصية والسرية.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Interactive Demo Section -->
+    <section id="demo" class="py-20 bg-gradient-to-b from-slate-900 via-slate-950 to-slate-900 text-white relative">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.1),transparent_50%)]"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-emerald-400 font-extrabold text-sm uppercase tracking-wider block mb-2">تجرِبة حية الآن</span>
+                <h2 class="text-3xl sm:text-4xl font-black">جرّب فكرة تطبيق My Level بنفسك!</h2>
+                <div class="w-16 h-1 bg-emerald-400 mx-auto mt-4 rounded-full"></div>
+                <p class="text-slate-300 mt-4 text-sm sm:text-base">
+                    لقد أنشأنا لك هنا محاكاة حقيقية وذكية. تفاعل مع شاشة الطالب على اليمين وشاهد كيف تترجم البيانات فوراً على شاشة المعلم الحية في اليسار!
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
+                
+                <!-- 1. Student Interface Panel (Right side) -->
+                <div class="lg:col-span-5 flex flex-col">
+                    <div class="bg-slate-800 rounded-3xl p-6 border border-slate-700 shadow-2xl flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between pb-4 border-b border-slate-700/60 mb-6">
+                                <div class="flex items-center gap-2">
+                                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+                                    <span class="text-xs text-slate-400 font-bold">بث مباشر - واجهة الطالب</span>
+                                </div>
+                                <span class="text-xs bg-slate-700 px-3 py-1 rounded-full text-slate-300">طالب مجهول #749</span>
+                            </div>
+                            
+                            <h3 class="text-lg font-bold text-white mb-2">أجب المعلم بسرية تامة:</h3>
+                            <p class="text-xs text-slate-400 leading-relaxed mb-6">
+                                هل الشرح الحالي لمفهوم "المصفوفات" واضح بالنسبة لك؟ اضغط على أحد الخيارات لمشاهدة الاستجابة الفورية باللوحة المقابلة!
+                            </p>
+
+                            <!-- Interactive Buttons for Students -->
+                            <div class="space-y-4">
+                                <button onclick="castVote('understand')" class="w-full p-4 rounded-2xl bg-emerald-500/10 border-2 border-emerald-500 hover:bg-emerald-500 hover:text-white text-emerald-400 font-extrabold text-base transition-all flex items-center justify-between group active:scale-95 shadow-lg">
+                                    <div class="flex items-center gap-3">
+                                        <i class="fa-regular fa-circle-check text-xl"></i>
+                                        <span>فاهم تماماً! أكمل الشرح</span>
+                                    </div>
+                                    <span class="text-xs px-2.5 py-1 bg-emerald-500/20 text-emerald-300 rounded-lg group-hover:bg-white/20 group-hover:text-white transition-colors">اضغط للتجربة</span>
+                                </button>
+
+                                <button onclick="castVote('soso')" class="w-full p-4 rounded-2xl bg-amber-500/10 border-2 border-amber-500 hover:bg-amber-500 hover:text-white text-amber-400 font-extrabold text-base transition-all flex items-center justify-between group active:scale-95 shadow-lg">
+                                    <div class="flex items-center gap-3">
+                                        <i class="fa-regular fa-circle-question text-xl"></i>
+                                        <span>نص نص - أحتاج لتأكيد بسيط</span>
+                                    </div>
+                                    <span class="text-xs px-2.5 py-1 bg-amber-500/20 text-amber-300 rounded-lg group-hover:bg-white/20 group-hover:text-white transition-colors">اضغط للتجربة</span>
+                                </button>
+
+                                <button onclick="castVote('notunderstand')" class="w-full p-4 rounded-2xl bg-red-500/10 border-2 border-red-500 hover:bg-red-500 hover:text-white text-red-400 font-extrabold text-base transition-all flex items-center justify-between group active:scale-95 shadow-lg">
+                                    <div class="flex items-center gap-3">
+                                        <i class="fa-solid fa-triangle-exclamation text-xl"></i>
+                                        <span>مش فاهم نهائياً! أرجو الإعادة</span>
+                                    </div>
+                                    <span class="text-xs px-2.5 py-1 bg-red-500/20 text-red-300 rounded-lg group-hover:bg-white/20 group-hover:text-white transition-colors">اضغط للتجربة</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="mt-8 pt-4 border-t border-slate-700/50 flex items-center justify-between text-xs text-slate-400">
+                            <span>جهاز الطالب الافتراضي</span>
+                            <div class="flex items-center gap-1 text-emerald-400">
+                                <i class="fa-solid fa-lock"></i>
+                                <span>تشفير تام للهوية</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Teacher Dashboard Panel (Left side) -->
+                <div class="lg:col-span-7 flex flex-col">
+                    <div class="bg-slate-800/60 rounded-3xl p-6 border border-slate-700/60 shadow-2xl flex-1 flex flex-col justify-between">
+                        
+                        <div>
+                            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between pb-4 border-b border-slate-700/60 gap-4 mb-6">
+                                <div>
+                                    <span class="text-xs text-slate-400 font-semibold block">شاشة العرض للمعلم</span>
+                                    <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                                        <i class="fa-solid fa-chart-line text-brand-accent"></i>
+                                        <span>لوحة المتابعة الحية للصف</span>
+                                    </h3>
+                                </div>
+                                <div class="flex items-center gap-2 bg-slate-900 border border-slate-700 px-3 py-1.5 rounded-xl self-start">
+                                    <span class="w-2.5 h-2.5 rounded-full bg-brand-accent animate-ping"></span>
+                                    <span class="text-xs font-semibold text-slate-300">الاستجابة: <span id="totalVotes" class="font-bold text-white text-sm">28</span> طالب</span>
+                                </div>
+                            </div>
+
+                            <div class="bg-slate-900/50 p-4 rounded-2xl border border-slate-800 mb-6">
+                                <div class="flex justify-between items-center text-xs text-slate-400 mb-2">
+                                    <span>الموضوع الحالي: المصفوفات والعمليات الأساسية</span>
+                                    <span class="text-brand-accent font-bold">معدل الفهم العام: <span id="generalFahm">76%</span></span>
+                                </div>
+                                <div class="w-full bg-slate-800 h-2.5 rounded-full overflow-hidden">
+                                    <div id="generalFahmBar" class="bg-gradient-to-r from-emerald-500 to-brand-accent h-full transition-all duration-500" style="width: 76%;"></div>
+                                </div>
+                            </div>
+
+                            <!-- Live Simulated Visual Charts -->
+                            <div class="space-y-6">
+                                <!-- Understand Progress -->
+                                <div>
+                                    <div class="flex justify-between items-center mb-1.5 text-xs font-semibold text-emerald-400">
+                                        <div class="flex items-center gap-2">
+                                            <span class="w-3 h-3 rounded-full bg-emerald-500"></span>
+                                            <span>فاهمين تماماً (أكمل الشرح)</span>
+                                        </div>
+                                        <span class="font-bold"><span id="uPercent">57</span>% (<span id="uCount">16</span> طالباً)</span>
+                                    </div>
+                                    <div class="w-full bg-slate-900 h-4 rounded-full overflow-hidden p-0.5 border border-slate-800">
+                                        <div id="uBar" class="bg-emerald-500 h-full rounded-full transition-all duration-500" style="width: 57%;"></div>
+                                    </div>
+                                </div>
+
+                                <!-- Soso Progress -->
+                                <div>
+                                    <div class="flex justify-between items-center mb-1.5 text-xs font-semibold text-amber-400">
+                                        <div class="flex items-center gap-2">
+                                            <span class="w-3 h-3 rounded-full bg-amber-500"></span>
+                                            <span>مستوى متوسط (نص نص)</span>
+                                        </div>
+                                        <span class="font-bold"><span id="sPercent">29</span>% (<span id="sCount">8</span> طلاب)</span>
+                                    </div>
+                                    <div class="w-full bg-slate-900 h-4 rounded-full overflow-hidden p-0.5 border border-slate-800">
+                                        <div id="sBar" class="bg-amber-500 h-full rounded-full transition-all duration-500" style="width: 29%;"></div>
+                                    </div>
+                                </div>
+
+                                <!-- Not Understand Progress -->
+                                <div>
+                                    <div class="flex justify-between items-center mb-1.5 text-xs font-semibold text-red-400">
+                                        <div class="flex items-center gap-2">
+                                            <span class="w-3 h-3 rounded-full bg-red-500"></span>
+                                            <span>غير فاهمين (أعد الشرح)</span>
+                                        </div>
+                                        <span class="font-bold"><span id="nPercent">14</span>% (<span id="nCount">4</span> طلاب)</span>
+                                    </div>
+                                    <div class="w-full bg-slate-900 h-4 rounded-full overflow-hidden p-0.5 border border-slate-800">
+                                        <div id="nBar" class="bg-red-500 h-full rounded-full transition-all duration-500" style="width: 14%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Reset Interactive Simulated Database Button -->
+                        <div class="mt-8 pt-4 border-t border-slate-700/50 flex flex-col sm:flex-row items-center justify-between gap-4">
+                            <button onclick="resetSim()" class="px-4 py-2 bg-slate-900 hover:bg-slate-950 text-slate-300 hover:text-white rounded-xl text-xs font-semibold transition-colors flex items-center gap-2 self-start border border-slate-800">
+                                <i class="fa-solid fa-rotate"></i>
+                                <span>إعادة تعيين المحاكاة للبداية</span>
+                            </button>
+                            <p class="text-[10px] text-slate-400 text-center sm:text-right leading-relaxed max-w-sm">
+                                لاحظ عدم ظهور أي أسماء أو معرفات شخصية للطلاب! فقط نسب إحصائية شاملة لحماية مشاعر وجودة تركيز الجميع.
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Features Section (Completed with high quality graphics) -->
+    <section id="features" class="py-20 bg-slate-50 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-600 font-extrabold text-sm uppercase tracking-wider block mb-2">مميزات نظام My Level</span>
+                <h2 class="text-3xl sm:text-4xl font-black text-slate-900">لماذا My Level هو الخيار الأفضل للحصص التفاعلية؟</h2>
+                <div class="w-16 h-1 bg-brand-600 mx-auto mt-4 rounded-full"></div>
+                <p class="text-slate-600 mt-4 text-base">
+                    تم بناء وتطوير منصة My Level بهندسة مخصصة لتلبية احتياجات المعلم الذكي وتوفير بيئة تعليمية آمنة بنسبة 100% للطلاب من مختلف الفئات والقدرات العلمية.
+                </p>
+            </div>
+
+            <!-- Features Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <!-- Feature 1 -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200/60 shadow-sm hover:shadow-md transition-all">
+                    <div class="w-12 h-12 bg-indigo-50 text-indigo-600 rounded-xl flex items-center justify-center text-xl mb-4">
+                        <i class="fa-solid fa-user-shield"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">سرية وهوية مجهولة</h3>
+                    <p class="text-xs text-slate-500 leading-relaxed">
+                        لا يطلب التطبيق أسماء الطلاب أو تفاصيل هوياتهم إطلاقاً. يمكنهم المشاركة والتعبير عن فهمهم بأمان مطلق وبدون أي خجل من الأقران أو المعلم.
+                    </p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200/60 shadow-sm hover:shadow-md transition-all">
+                    <div class="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-xl flex items-center justify-center text-xl mb-4">
+                        <i class="fa-solid fa-clock"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">استجابة فائقة السرعة</h3>
+                    <p class="text-xs text-slate-500 leading-relaxed">
+                        يتم تحديث لوحة تحكم المعلم فوراً بجزء من الثانية ليتسنى له تعديل مسار الحصة وسرعة الشرح أو توجيه تلميحات داعمة للطلاب المتأخرين بالاستيعاب.
+                    </p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200/60 shadow-sm hover:shadow-md transition-all">
+                    <div class="w-12 h-12 bg-amber-50 text-amber-600 rounded-xl flex items-center justify-center text-xl mb-4">
+                        <i class="fa-solid fa-qrcode"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">انضمام بـ QR Code بسيط</h3>
+                    <p class="text-xs text-slate-500 leading-relaxed">
+                        لا يحتاج الطالب لتنزيل أي برامج أو إنشاء حسابات معقدة. يمسح الطالب كود الـ QR الخاص بالصف على التابلت أو الهاتف ويبدأ التفاعل المباشر بلحظة واحدة.
+                    </p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200/60 shadow-sm hover:shadow-md transition-all">
+                    <div class="w-12 h-12 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center text-xl mb-4">
+                        <i class="fa-solid fa-file-invoice-dollar"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">مجاني للمدارس</h3>
+                    <p class="text-xs text-slate-500 leading-relaxed">
+                        نهتم بدمج التكنولوجيا في المدارس وتسهيل وصولها لكافة شرائح المعلمين والطلاب مجاناً وبدون أي تكاليف تأسيس أو تشغيل تعوق التطور التربوي.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- RLA Team Section -->
+    <section class="py-20 bg-slate-900 text-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-accent font-extrabold text-sm uppercase tracking-wider block mb-2">طاقم العمل المطور</span>
+                <h2 class="text-3xl sm:text-4xl font-black">عن فريق RLA</h2>
+                <div class="w-16 h-1 bg-brand-accent mx-auto mt-4 rounded-full"></div>
+                <p class="text-slate-300 mt-4 text-base">
+                    فريق من المبتكرين والمطورين الشغوفين بتحسين سبل وطرق التعليم وصناعة أدوات تقنية حديثة تحمي كرامة الطلاب النفسية وتعزز كفاءة المعلمين داخل الصفوف.
+                </p>
+            </div>
+
+            <!-- Team Visual Cards/Mission Statement -->
+            <div class="bg-slate-800/50 p-8 sm:p-12 rounded-[2.5rem] border border-slate-700/60 max-w-4xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div class="space-y-4">
+                        <h3 class="text-2xl font-black text-white">رؤية فريق RLA</h3>
+                        <p class="text-sm text-slate-300 leading-relaxed">
+                            نؤمن بأن جودة التعليم تبدأ من شعور الطالب بالأمان والراحة النفسية داخل قاعات الدراسة. الإحراج أو الخوف من السؤال لا يجب أن يكونا عائقاً في وجه التطور العلمي للطلاب في القرن الحادي والعشرين.
+                        </p>
+                        <p class="text-sm text-slate-300 leading-relaxed">
+                            عبر ابتكار <span class="text-brand-accent font-bold">My Level</span>، ندمج البساطة التكنولوجية مع المنهجية التربوية الصحيحة لإحداث ثورة في التفاعل والمتابعة الصفية.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-slate-900/80 p-6 rounded-2xl border border-slate-700 space-y-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-brand-accent/20 text-brand-accent flex items-center justify-center text-lg">
+                                <i class="fa-solid fa-code"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-bold text-white">تطوير مستمر</h4>
+                                <span class="text-xs text-slate-400">نعمل على ميزات تفاعلية إضافية</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-lg">
+                                <i class="fa-solid fa-circle-check"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-bold text-white">أمان تام</h4>
+                                <span class="text-xs text-slate-400">حماية البيانات والخصوصية أهم أولوياتنا</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-blue-500/20 text-blue-400 flex items-center justify-center text-lg">
+                                <i class="fa-solid fa-handshake"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-bold text-white">دعم مستمر للمدراء والمعلمين</h4>
+                                <span class="text-xs text-slate-400">شروحات مجانية وورشات عمل مخصصة</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Call To Action Bottom Section -->
+    <section class="py-20 bg-gradient-to-tr from-brand-700 to-indigo-900 text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(139,92,246,0.2),transparent_40%)]"></div>
+        
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 space-y-6">
+            <h2 class="text-3xl sm:text-5xl font-black">اجعل صفك الدراسي أكثر ذكاءً وأماناً اليوم!</h2>
+            <p class="text-lg text-indigo-100 max-w-2xl mx-auto leading-relaxed">
+                انضم لمئات المعلمين والطلاب في مجتمع My Level وباشر تجربة استثنائية وجذابة وخالية من الإحراج.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+                <a href="#demo" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-white text-slate-900 hover:bg-slate-50 font-black text-lg shadow-xl transition-all flex items-center justify-center gap-2">
+                    <span>ابدأ التجربة الحية مجاناً</span>
+                    <i class="fa-solid fa-play"></i>
+                </a>
+                <a href="mailto:info@mylevel-rla.com" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-indigo-800/60 border border-indigo-400 text-white hover:bg-indigo-800 font-bold text-lg transition-all flex items-center justify-center gap-2">
+                    <i class="fa-regular fa-envelope"></i>
+                    <span>تواصل مع فريق RLA</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-slate-400 py-12 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-slate-900">
+                
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-lg bg-brand-600 flex items-center justify-center text-white text-sm">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </div>
+                    <span class="text-lg font-black text-white">My Level</span>
+                </div>
+
+                <p class="text-xs text-slate-500 text-center md:text-right">
+                    جميع الحقوق محفوظة لمشروع My Level © 2026. تم التطوير بشغف بواسطة فريق RLA.
+                </p>
+
+                <div class="flex items-center gap-4">
+                    <a href="#" class="w-8 h-8 rounded-full bg-slate-900 hover:bg-brand-600 hover:text-white transition-colors flex items-center justify-center text-slate-400" aria-label="X">
+                        <i class="fa-brands fa-x-twitter"></i>
+                    </a>
+                    <a href="#" class="w-8 h-8 rounded-full bg-slate-900 hover:bg-brand-600 hover:text-white transition-colors flex items-center justify-center text-slate-400" aria-label="LinkedIn">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="w-8 h-8 rounded-full bg-slate-900 hover:bg-brand-600 hover:text-white transition-colors flex items-center justify-center text-slate-400" aria-label="GitHub">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Footer Small Team Note -->
+            <div class="pt-8 text-center">
+                <p class="text-[11px] text-slate-600">
+                    بناء وتصميم الفكرة الإبداعية: فريق RLA المكون من مبدعي ومطوري الجيل القادم. نحو غدٍ أفضل وبيئات صفية تفاعلية تخلو من العوائق النفسية للطلاب.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom Simulation Javascript Logic -->
+    <script>
+        // Default Mock Data for Live Demo Simulation
+        let votes = {
+            understand: 16,
+            soso: 8,
+            notunderstand: 4
+        };
+
+        // Header Background on Scroll Animation
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 40) {
+                header.classList.add('py-1', 'shadow-md', 'bg-white/95');
+                header.classList.remove('shadow-sm');
+            } else {
+                header.classList.remove('py-1', 'shadow-md', 'bg-white/95');
+                header.classList.add('shadow-sm');
+            }
+        });
+
+        // Mobile Menu Toggle Logic
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileDrawer = document.getElementById('mobileDrawer');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileDrawer.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileDrawer.classList.add('hidden');
+            });
+        });
+
+        // Interactive Live Demo Vote Casting Function
+        function castVote(option) {
+            // Register Student Vote in Mock Database
+            votes[option]++;
+            
+            // Re-render UI Elements
+            renderSimulation();
+        }
+
+        // Reset Simulation State back to Default
+        function resetSim() {
+            votes = {
+                understand: 16,
+                soso: 8,
+                notunderstand: 4
+            };
+            renderSimulation();
+        }
+
+        // Render Simulation updates across both UI mock interfaces
+        function renderSimulation() {
+            const total = votes.understand + votes.soso + votes.notunderstand;
+            
+            // Calc Percentages
+            const uPerc = Math.round((votes.understand / total) * 100);
+            const sPerc = Math.round((votes.soso / total) * 100);
+            const nPerc = Math.round((votes.notunderstand / total) * 100);
+
+            // Update Total Votes Text
+            document.getElementById('totalVotes').textContent = total;
+
+            // Update Counts and Percentages text elements
+            document.getElementById('uCount').textContent = votes.understand;
+            document.getElementById('sCount').textContent = votes.soso;
+            document.getElementById('nCount').textContent = votes.notunderstand;
+
+            document.getElementById('uPercent').textContent = uPerc;
+            document.getElementById('sPercent').textContent = sPerc;
+            document.getElementById('nPercent').textContent = nPerc;
+
+            // Update Animated Width Progress Bars
+            document.getElementById('uBar').style.width = uPerc + '%';
+            document.getElementById('sBar').style.width = sPerc + '%';
+            document.getElementById('nBar').style.width = nPerc + '%';
+
+            // General Understanding Rating Formula (Weighted Average)
+            // (100% value for Understand, 50% value for Soso, 0% for NotUnderstand)
+            const weightedTotal = (votes.understand * 100) + (votes.soso * 50) + (votes.notunderstand * 0);
+            const overallFahm = Math.round(weightedTotal / total);
+
+            document.getElementById('generalFahm').textContent = overallFahm + '%';
+            document.getElementById('generalFahmBar').style.width = overallFahm + '%';
+        }
+    </script>
+</body>
+</html>
